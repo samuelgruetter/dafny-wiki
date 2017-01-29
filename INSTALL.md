@@ -19,6 +19,7 @@ Then:
 Install the source code
 =======================
 
+## Windows
 First, install the following external dependencies:
 
 -   Visual Studio 2012 Ultimate
@@ -42,3 +43,7 @@ Last, follow the conventions:
 -   Visual Studio
     -   Set "General:Tab" to "2 2"
     -   For `"C#:Formatting:NewLines` Turn everything off except the first option.
+
+## Mac OS X and Linux
+
+Follow the instructions in the INSTALL file in the root directory of the repository.
