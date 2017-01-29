@@ -38,6 +38,11 @@ Second, clone source code.
 -   [BoogiePartners](https://github.com/boogie-org/boogie-partners)
 -   copy [Coco.exe](http://www.ssw.uni-linz.ac.at/Research/Projects/Coco/) to `\boogiepartners\CocoRdownload`
 
+Third, build the following projects in the following order:
+-   `boogie\Source\Boogie.sln`
+-   `dafny\Source\Dafny.sln`
+-   `dafny\Source\DafnyExtension.sln`
+
 Last, follow the conventions:
 
 -   Visual Studio
