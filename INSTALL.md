@@ -6,11 +6,11 @@ The easiest way to get started with Dafny is to use [rise4fun](http://rise4fun.c
 Install the binaries
 ====================
 
-**Windows:** To install Dafny on your own machine, download Dafny.zip and **save** it to your disk. Then, before you open or unzip it, right-click on it and select Properties; at the bottom of the dialog, click the Unblock button and then the OK button. Now, open Dafny.zip and copy its contents into a directory on your machine. (You can now delete the Dafny.zip file.)
+**Windows:** To install Dafny on your own machine, download Dafny.zip from the [releases page](https://github.com/Microsoft/dafny/releases) and **save** it to your disk. Then, before you open or unzip it, right-click on it and select Properties; at the bottom of the dialog, click the Unblock button and then the OK button. Now, open Dafny.zip and copy its contents into a directory on your machine. (You can now delete the Dafny.zip file.)
 
 Then:
 
--   To run Dafny from the command line, simply run Dafny.exe from the `Binaries` directory.
+-   To run Dafny from the command line, simply run Dafny.exe.
 -   To install Dafny for use inside Visual Studio 2012, double-click on `DafnyLanguageService.vsix` to run the installer. You may first need to uninstall the old version of the extension from within Visual Studio (Tools ==\> Extensions and Updates). Then, whenever you open a file with the extension .dfy in Visual Studio, the Dafny mode will kick in. (If you don't intend to run Dafny from the command line, you can delete the directory into which you copied the contents of Dafny.zip.)
 -   There is also a [Dafny mode for Emacs](https://github.com/boogie-org/boogie-friends).
 
