@@ -51,4 +51,4 @@ Last, follow the conventions:
 
 ## Mac OS X and Linux
 
-Follow the instructions in the INSTALL file in the root directory of the repository.
+Follow the instructions in the [INSTALL.md](https://github.com/Microsoft/dafny/blob/master/INSTALL.md) file in the root directory of the repository.
