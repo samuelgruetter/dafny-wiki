@@ -6,15 +6,27 @@ The easiest way to get started with Dafny is to use [rise4fun](http://rise4fun.c
 Install the binaries
 ====================
 
-**Windows:** To install Dafny on your own machine, download Dafny.zip from the [releases page](https://github.com/Microsoft/dafny/releases) and **save** it to your disk. Then, before you open or unzip it, right-click on it and select Properties; at the bottom of the dialog, click the Unblock button and then the OK button. Now, open Dafny.zip and copy its contents into a directory on your machine. (You can now delete the Dafny.zip file.)
+## Windows 
+
+To install Dafny on your own machine, download Dafny.zip from the [releases page](https://github.com/Microsoft/dafny/releases) and **save** it to your disk. Then, before you open or unzip it, right-click on it and select Properties; at the bottom of the dialog, click the Unblock button and then the OK button. Now, open Dafny.zip and copy its contents into a directory on your machine. (You can now delete the Dafny.zip file.)
 
 Then:
 
 -   To run Dafny from the command line, simply run Dafny.exe.
 -   To install Dafny for use inside Visual Studio 2012, double-click on `DafnyLanguageService.vsix` to run the installer. You may first need to uninstall the old version of the extension from within Visual Studio (Tools ==\> Extensions and Updates). Then, whenever you open a file with the extension .dfy in Visual Studio, the Dafny mode will kick in. (If you don't intend to run Dafny from the command line, you can delete the directory into which you copied the contents of Dafny.zip.)
--   There is also a [Dafny mode for Emacs](https://github.com/boogie-org/boogie-friends).
 
-**Linux and Mac:** Make sure you have Mono version 4. Then save the contents of the Dafny.zip for the appropriate version of your platform. You can now run Dafny from the command line by invoking the script file `dafny`. For an IDE, use the [Dafny mode for Emacs](https://github.com/boogie-org/boogie-friends).
+## Linux and Mac
+
+Make sure you have [Mono](https://www.mono-project.com/download/stable/). Then save the contents of the Dafny.zip for the appropriate version of your platform. You can now run Dafny from the command line by invoking the script file `dafny`.
+
+Install an IDE
+==============
+
+Dafny offers several IDE integrations for interactive verification.
+
+- **Visual Studio** (Windows only): see the Windows installation instructions above
+- **Emacs** (cross-platform): follow the installation instructions above, then install the [Dafny mode for Emacs](https://github.com/boogie-org/boogie-friends)
+- **Visual Studio Code** (cross-platform): install Mono (if on Linux or Mac), then install the [Dafny VSCode](https://marketplace.visualstudio.com/items?itemName=FunctionalCorrectness.dafny-vscode) extension from the extension marketplace. When you first open a Dafny file, the extension will prompt you to automatically install Dafny.
 
 Install the source code
 =======================
