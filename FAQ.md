@@ -10,7 +10,7 @@ Dafny is incomplete for (at least) the following reasons:
 
 * **Missing annotations**. Dafny breaks the verification problem down using pre-/postconditions and loop invariants. A program can be globally correct, but, if it contains insufficient or incorrect annotations, Dafny may report an error. See the [Guide](https://rise4fun.com/Dafny/tutorial/Guide) section "Assertions" for further explanation.
 * **Incomplete quantifiers**. Quantifiers (`forall` and `exists`) are one source of undecidability in the logic underlying Dafny. In principle, any program using quantifiers may run into this undecidability, though Dafny handles many cases automatically. See the section below on quantifiers and triggers for more on how to work with quantifiers in Dafny.
-* **Nonlinear arithmetic**. Numerical formulas involving multiplication are also undecidable in general. (Multiplication by any constant value such as `2 * x` are fine though.) You can sometimes work around this by breaking your formula down into smaller pieces by introducing new functions. You can also turn off nonlinear arithmetic in the solver using `/noNLarith` command line flag. See `dafny /help` for more details.
+* **Nonlinear arithmetic**. Numerical formulas involving multiplication are also undecidable in general. (Multiplication by any constant value such as `2 * x` are fine though.) You can sometimes work around this by breaking your formula down into smaller pieces by introducing new functions.
 * **Incomplete axiomatization of collection operations and extensionality**. Dafny contains several built-in types (sequences, sets, maps, etc.) and operations over those sets, all of which are axiomatized to the underlying solver. These axioms are known to be incomplete. One common problem is with "extensionality", which refers to the fact that two collections are equal when they have the same elements. Dafny has trouble knowing when to invoke this principle, but you can encourage it to do so by adding an explicit equality assertion to your program.
 * **Complex heap reasoning**. Under the hood, Dafny reasons about the heaps using collections and quantifiers. Although this reasoning is carefully tuned to work well in the common case, it can occasionally "leak" incompleteness due to underlying incompleteness from quantifiers or collections. 
 
@@ -31,6 +31,8 @@ The warnings have to do with how Dafny (and the underlying solver Z3) handle qua
 First of all, they truly are warnings. If the program has no errors, then it has passed the verifier and satisfies its specification. You don't *need* to fix the warnings.
 
 However, in more complex programs you will often find that these warnings come along with failed or unpredictable verification outcomes. In those cases, it's worth knowing how to fix it. Often, the warnings can be eliminated by introducing a otherwise-useless helper function to serve as the trigger.
+
+Dafny determines triggers automatically and uses tool tips to inform users about its trigger selection process. Dafny has been designed with the motto "users need to understand triggers, but should never need to write triggers themselves". To help you understand what triggers are, the discussion below uses manually supplied triggers. You should avoid writing triggers yourself. Instead, if you get a warning about triggers, try to rewrite the quantifier. As you do, you can inspect to tool tips to see what triggers Dafny selects for you.
 
 ### What is a trigger?
 
@@ -76,10 +78,10 @@ It is an essential part of becoming a competent Dafny user to understand when a 
 
 ### What makes a good trigger?
 
-Good triggers are usually small expressions containing the quantified variables that do not involve so-called "interpreted symbols", which, for our purposes, can be considered "arithmetic operations". Arithmetic is not allowed in triggers for the good reason that the solver cannot easily tell when a trigger has been mentioned. For example, if `x + y` was an allowed trigger and the programmer mentioned `(y + 0) * 1 + x`, the solver would have trouble immediately recognizing that this was equal to a triggering expression. Since this can cause inconsistent instantiation of quantifiers, arithmetic is disallowed in triggers.
+Good triggers are usually small expressions containing the quantified variables that do not involve so-called "interpreted symbols", which, for our purposes, can be considered "arithmetic operations". Arithmetic is not allowed in triggers for the good reason that the solver cannot easily tell when a trigger has been mentioned. For example, if `x + y` was an allowed trigger and the programmer mentioned `(y + 0) * 1 + x`, the solver would have trouble immediately recognizing that this was equal to a triggering expression. Since this can cause unpredictable instantiation of quantifiers, arithmetic is disallowed in triggers.
 
 Many other expressions are allowed as triggers, such as indexing into Dafny data structures, dereferencing fields, set membership, and function application.
 
-Sometimes, the most natural way of writing down a formula will contain no valid triggers, as your original example did. In that case, Dafny will warn you. Sometimes, verification will succeed anyways, but in large programs you will often need to fix these warnings. A good general strategy is to introduce a new function the abstract some part of the quantified formula that can serve as a trigger.
+The most natural way of writing down a formula will contain no valid triggers. If Dafny finds a problem while trying to generate a trigger, Dafny will warn you. Sometimes, verification will succeed anyways even when you get such a warning, but in large programs you will often need to fix these warnings. A good general strategy is to introduce a new function to abstract some part of the quantified formula that can serve as a trigger.
 
 
