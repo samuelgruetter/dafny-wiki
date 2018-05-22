@@ -106,7 +106,9 @@ Dafny reports that the assignment in `Main` to `a[0]` may violate the context's 
 
 to `MakeArray`, which exposes the fact that `a` is newly allocated. Then the whole program verifies. 
 
-In a post condition, the meaning of `fresh(a)` is "`a` was allocated during the execution of this method". This allows Dafny to conclude that `a` is not equal to anything in the caller's context, and so `Main` is welcome to modify the newly allocated array.
+In a postcondition, the meaning of `fresh(a)` is "`a` was allocated during the execution of this method", or in other words, "the allocation of `a` took place after the execution of this method started". Since a method is always allowed to modify the state of any object or array that it allocates (or that a method it calls allocates), the `fresh(a)` postcondition tells callers that they are allowed to modify the state of `a`.
+
+Since a Dafny program can never obtain references to unallocated objects, the postcondition `fresh(a)` also lets a caller conclude that `a` is not equal to anything in the caller's context. So, if `Main` also had another array `b`, then the verifier would know that `a` and `b` are different references.
 
 See the tutorial section on "Framing" for more detail about `modifies` clauses.
 
