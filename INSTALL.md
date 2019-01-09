@@ -1,7 +1,29 @@
-Try Dafny
-=========
+
+Try Dafny Online
+================
 
 The easiest way to get started with Dafny is to use [rise4fun](http://rise4fun.com/dafny), where you can write and verify Dafny programs without having install anything. On rise4fun, you will also find the [online Dafny tutorial](http://rise4fun.com/Dafny/tutorial/guide).
+
+Get Started with Visual Studio Code
+===================================
+1. Install [Visual Studio Code](https://code.visualstudio.com/)
+2. If you are on a Mac or Linux, [install Mono](https://www.mono-project.com/download/stable/).  
+  We recommend to get the newest version directly from the Mono Project.
+3. In Visual Studio Code, press `Ctrl+P` (or `⌘P` on a Mac), and enter `ext install correctnessLab.dafny-vscode`.
+4. If you open a `.dfy` file, Dafny VSCode offers to download and install the latest Dafny: 
+  ![Dafny Installation](https://raw.githubusercontent.com/DafnyVSCode/Dafny-VSCode/develop/installation.gif)
+
+
+
+Install in another an IDE
+==============
+
+Dafny offers several IDE integrations for interactive verification.
+
+- **Visual Studio** (Windows only): see the Windows installation instructions above
+- **Emacs** (cross-platform): follow the installation instructions above, then install the [Dafny mode for Emacs](https://github.com/boogie-org/boogie-friends)
+- **Visual Studio Code** (cross-platform): See [Get Started with Visual Studio Code](#get-started-with-visual-studio-code)
+
 
 Install the binaries
 ====================
@@ -19,14 +41,6 @@ Then:
 
 Make sure you have [Mono](https://www.mono-project.com/download/stable/). Then save the contents of the Dafny.zip for the appropriate version of your platform. You can now run Dafny from the command line by invoking the script file `dafny`.
 
-Install an IDE
-==============
-
-Dafny offers several IDE integrations for interactive verification.
-
-- **Visual Studio** (Windows only): see the Windows installation instructions above
-- **Emacs** (cross-platform): follow the installation instructions above, then install the [Dafny mode for Emacs](https://github.com/boogie-org/boogie-friends)
-- **Visual Studio Code** (cross-platform): install Mono (if on Linux or Mac), then install the [Dafny VSCode](https://marketplace.visualstudio.com/items?itemName=FunctionalCorrectness.dafny-vscode) extension from the extension marketplace. When you first open a Dafny file, the extension will prompt you to automatically install Dafny.
 
 Install the source code
 =======================
@@ -64,3 +78,4 @@ Last, follow the conventions:
 ## Mac OS X and Linux
 
 Follow the instructions in the [INSTALL.md](https://github.com/Microsoft/dafny/blob/master/INSTALL.md) file in the root directory of the repository.
+
