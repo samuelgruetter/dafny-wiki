@@ -20,9 +20,22 @@ Install in another an IDE
 
 Dafny offers several IDE integrations for interactive verification.
 
-- **Visual Studio** (Windows only): see the Windows installation instructions above
-- **Emacs** (cross-platform): follow the installation instructions above, then install the [Dafny mode for Emacs](https://github.com/boogie-org/boogie-friends)
-- **Visual Studio Code** (cross-platform): See [Get Started with Visual Studio Code](#get-started-with-visual-studio-code)
+- **[Visual Studio Code](#get-started-with-visual-studio-code)** (cross-platform)
+- **Visual Studio** (Windows only): see [Windows installation instructions below](#windows)
+- **[Emacs](#emacs)** (cross-platform)
+
+## Emacs
+
+The README at https://github.com/boogie-org/boogie-friends has plenty of
+information on how to set-up Emacs to work with Dafny. In short, it boils down
+to running `[M-x package-install RET boogie-friends RET]` and adding the following
+to your `.emacs`:
+```
+(setq flycheck-dafny-executable "BASE-DIRECTORY/dafny/Binaries/dafny")
+```
+
+Do look at the README, though! It's full of useful tips.
+
 
 
 Install the binaries
