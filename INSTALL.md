@@ -10,11 +10,11 @@ explained next:
 
 Get Started with Visual Studio Code
 ===================================
-1. Install [Visual Studio Code](https://code.visualstudio.com/)
-2. If you are on a Mac or Linux, [install Mono](https://www.mono-project.com/download/stable/).  
+0. Install [Visual Studio Code](https://code.visualstudio.com/)
+1. If you are on a Mac or Linux, [install Mono](https://www.mono-project.com/download/stable/).  
   We recommend to get the newest version directly from the Mono Project.
-3. In Visual Studio Code, press `Ctrl+P` (or `⌘P` on a Mac), and enter `ext install correctnessLab.dafny-vscode`.
-4. If you open a `.dfy` file, Dafny VSCode offers to download and install the latest Dafny: 
+2. In Visual Studio Code, press `Ctrl+P` (or `⌘P` on a Mac), and enter `ext install correctnessLab.dafny-vscode`.
+3. If you open a `.dfy` file, Dafny VSCode offers to download and install the latest Dafny: 
   ![Dafny Installation](https://raw.githubusercontent.com/DafnyVSCode/Dafny-VSCode/develop/installation.gif)
 
 
@@ -101,4 +101,52 @@ Last, follow the conventions:
 ## Mac OS X and Linux
 
 Follow the instructions in the [INSTALL.md](https://github.com/Microsoft/dafny/blob/master/INSTALL.md) file in the root directory of the repository.
+
+## Compiling to JavaScript and Go, and running the test suite
+
+By default, Dafny compiles to .NET. If you want to compile to JavaScript, make sure you
+have node.js installed (see below) and then use the `/compileTarget:js` flag. If you want
+to compile to Go, make sure you have Go installed (see below) and then use the
+`/compileTarget:go` flag.
+
+Note, the tests in the `Test/comp` folder run the Dafny compiler to produce code for .NET,
+JavaScript, and Go. If you don't have node.js and Go installed and on your path, these tests
+will be disabled and you will get a "unsupported" message from `lit`.
+
+NOTE: (6 May 2019) Under Windows, the test suite does not properly capture the output from
+the Go programs in `Test/comp`. More precisely, under Windows, when `lit` invokes Dafny
+with `/compile:3 /compileTarget:go`, the output does not show up (but running Dafny directly
+with those options is fine, as is running `go run` on the program that Dafny generates).
+If you know how to fix this problem, please provide a Pull Request or contact the Dafny
+developers.
+
+To set up Dafny to compile to JavaScript (node.js):
+* Install node.js from https://nodejs.org/en/download
+* Make sure `node` and `npm` are on your path
+* Install the bignumber.js package (see https://github.com/MikeMcl/bignumber.js) by running:
+  `npm install bignumber.js`
+
+To set up Dafny to compile to Go:
+* Install Go from https://golang.org/dl
+* Make sure `go` in on your path
+
+Dafny's command-line option `/compile:3` verifies, compiles, and runs your program. It works
+with any compilation target. If you want to do some of these steps manually (say, for a
+verifying program named `MyProgram.dfy` that has a `Main` method), here's how:
+* To separately compile and run your program for .NET:
+  - `dafny MyProgram.dfy`
+  - `MyProgram.exe`
+* Dafny can also output your .NET-compiled program as a C# program, which you can then
+  compile yourself:
+  - `dafny /spillTargetCode:1 MyProgram.dfy`
+  - See the generated `MyProgram.cs` file for how to invoke `csc` on `MyProgram.cs`
+* To separately compile and run your program for JavaScript:
+  - `dafny /compileTarget:js /spillTargetCode:1 MyProgram.dfy`
+  - `node MyProgram.js`
+* To separately compile and run your program for Go:
+  - `dafny /compileTarget:go MyProgram.dfy`
+  - This created a folder `MyProgram-go` with the target files. You must set the `GOPATH`
+    to point to this folder, and Go insists that the path you give is an absolute path
+    (including the `C:` on Windows).
+  - After setting `GOPATH`, do `go run MyProgram-go/src/MyProgram.go`
 
