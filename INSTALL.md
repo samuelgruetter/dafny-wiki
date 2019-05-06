@@ -4,6 +4,10 @@ Try Dafny Online
 
 The easiest way to get started with Dafny is to use [rise4fun](http://rise4fun.com/dafny), where you can write and verify Dafny programs without having install anything. On rise4fun, you will also find the [online Dafny tutorial](http://rise4fun.com/Dafny/tutorial/guide).
 
+You'll get a much better Dafny experience from the Dafny IDEs, since they continuously run the verifier in
+the background. For most users, we recommend using Dafny with VS Code, which has an easy installation, as
+explained next:
+
 Get Started with Visual Studio Code
 ===================================
 1. Install [Visual Studio Code](https://code.visualstudio.com/)
@@ -21,8 +25,8 @@ Install in another an IDE
 Dafny offers several IDE integrations for interactive verification.
 
 - **[Visual Studio Code](#get-started-with-visual-studio-code)** (cross-platform)
-- **Visual Studio** (Windows only): see [Windows installation instructions below](#windows)
 - **[Emacs](#emacs)** (cross-platform)
+- **Visual Studio** (Windows only): see [Windows installation instructions below](#windows)
 
 ## Emacs
 
@@ -41,14 +45,17 @@ Do look at the README, though! It's full of useful tips.
 Install the binaries
 ====================
 
+Note, if you install Dafny via VS Code using the steps above, you're done. The following instructions
+tell you how to install Dafny so that you can run it from the command line or, on Windows, Visual Studio.
+
 ## Windows 
 
-To install Dafny on your own machine, download Dafny.zip from the [releases page](https://github.com/Microsoft/dafny/releases) and **save** it to your disk. Then, before you open or unzip it, right-click on it and select Properties; at the bottom of the dialog, click the Unblock button and then the OK button. Now, open Dafny.zip and copy its contents into a directory on your machine. (You can now delete the Dafny.zip file.)
+To install Dafny on your own machine, download Dafny.zip from the [releases page](https://github.com/Microsoft/dafny/releases) and **save** it to your disk. Then, **before you open or unzip it**, right-click on it and select Properties; at the bottom of the dialog, click the **Unblock** button and then the OK button. Now, open Dafny.zip and copy its contents into a directory on your machine. (You can now delete the Dafny.zip file.)
 
 Then:
 
 -   To run Dafny from the command line, simply run Dafny.exe.
--   To install Dafny for use inside Visual Studio 2012, double-click on `DafnyLanguageService.vsix` to run the installer. You may first need to uninstall the old version of the extension from within Visual Studio (Tools ==\> Extensions and Updates). Then, whenever you open a file with the extension .dfy in Visual Studio, the Dafny mode will kick in. (If you don't intend to run Dafny from the command line, you can delete the directory into which you copied the contents of Dafny.zip.)
+-   To install Dafny for use inside Visual Studio, double-click on `DafnyLanguageService.vsix` to run the installer. You may first need to uninstall the old version of the extension from within Visual Studio (Tools ==\> Extensions and Updates). Then, whenever you open a file with the extension .dfy in Visual Studio, the Dafny mode will kick in. (If you don't intend to run Dafny from the command line, you can delete the directory into which you copied the contents of Dafny.zip.)
 
 ## Linux and Mac
 
@@ -58,11 +65,14 @@ Make sure you have [Mono](https://www.mono-project.com/download/stable/). Then s
 Install the source code
 =======================
 
+If you want access to the very latest Dafny developments or you want to extend Dafny yourself, get the source code, as explained here.
+
 ## Windows
+
 First, install the following external dependencies:
 
--   Visual Studio 2012 Ultimate
--   [Visual Studio 2012 sdk extension](https://visualstudiogallery.msdn.microsoft.com/b2fa5b3b-25eb-4a2f-80fd-59224778ea98)
+-   Visual Studio 2017 or newer
+-   [Visual Studio SDK extension](https://visualstudiogallery.msdn.microsoft.com/b2fa5b3b-25eb-4a2f-80fd-59224778ea98)
 -   [Code contract extension](https://visualstudiogallery.msdn.microsoft.com/1ec7db13-3363-46c9-851f-1ce455f66970)
 -   [NUnit test adapter](https://visualstudiogallery.msdn.microsoft.com/6ab922d0-21c0-4f06-ab5f-4ecd1fe7175d)
 -   To install lit (for test run):
@@ -80,7 +90,7 @@ Second, clone source code.
 Third, build the following projects in the following order:
 -   `boogie\Source\Boogie.sln`
 -   `dafny\Source\Dafny.sln`
--   `dafny\Source\DafnyExtension.sln`
+-   `dafny\Source\DafnyExtension.sln` (if you want to run Dafny in the Visual Studio IDE; you don't need this step if you'll only be using Dafny in VS Code, Emacs, or the command line)
 
 Last, follow the conventions:
 
