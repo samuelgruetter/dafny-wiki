@@ -113,13 +113,6 @@ Note, the tests in the `Test/comp` folder run the Dafny compiler to produce code
 JavaScript, and Go. If you don't have node.js and Go installed and on your path, these tests
 will be disabled and you will get a "unsupported" message from `lit`.
 
-NOTE: (6 May 2019) Under Windows, the test suite does not properly capture the output from
-the Go programs in `Test/comp`. More precisely, under Windows, when `lit` invokes Dafny
-with `/compile:3 /compileTarget:go`, the output does not show up (but running Dafny directly
-with those options is fine, as is running `go run` on the program that Dafny generates).
-If you know how to fix this problem, please provide a Pull Request or contact the Dafny
-developers.
-
 To set up Dafny to compile to JavaScript (node.js):
 * Install node.js from https://nodejs.org/en/download
 * Make sure `node` and `npm` are on your path
