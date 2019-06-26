@@ -31,7 +31,10 @@ Run the AxiomProfiler on the log file we just obtained from z3.
 
 ### 4. Interpreting AxiomProfiler output
 
-To understand the AxiomProfiler output we recommend reading up on matching triggers, for example in:
+To understand the AxiomProfiler output we recommend reading the AxiomProfiler paper at:
 
-* https://www.microsoft.com/en-us/research/publication/computing-smt-solver/
 * http://people.inf.ethz.ch/summersa/wiki/lib/exe/fetch.php?media=papers:axiomprofiler.pdf
+
+And to read up on matching triggers, for example at:
+* https://github.com/microsoft/dafny/wiki/FAQ
+* https://www.microsoft.com/en-us/research/publication/computing-smt-solver/
