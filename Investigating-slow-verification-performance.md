@@ -36,5 +36,5 @@ To understand the AxiomProfiler output we recommend reading the AxiomProfiler pa
 * http://people.inf.ethz.ch/summersa/wiki/lib/exe/fetch.php?media=papers:axiomprofiler.pdf
 
 And to read up on matching triggers, for example at:
-* https://github.com/microsoft/dafny/wiki/FAQ
+* https://github.com/dafny-lang/dafny/wiki/FAQ#how-does-dafny-handle-quantifiers-ive-heard-about-triggers-what-are-those
 * https://www.microsoft.com/en-us/research/publication/computing-smt-solver/
