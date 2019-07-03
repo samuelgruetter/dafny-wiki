@@ -1,5 +1,3 @@
-[Headers](#headers) 
-
 [Rider](https://www.jetbrains.com/rider/) is a nice IDE for editing C# code.  It has a highlighting editor, debugger, and run configurations analogous to IntelliJ.
 
 #### Why isn't Rider code folding my gigantic files like Resolver.cs?
