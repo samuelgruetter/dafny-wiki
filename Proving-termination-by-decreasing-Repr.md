@@ -128,7 +128,7 @@ method infiniteLoop() {
     var c1 := new LogWrapCounter(b);
     var c2 := new LogWrapCounter(c1);
     c1.underlying := c2;
-	c1.inc();
+    c1.inc();
 }
 ```
 
